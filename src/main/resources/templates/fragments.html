@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Clubs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+</head>
+<body>
+<div th:fragment="header" class="topnav">
+<!--    <ul>-->
+<!--        <li><a href="#home">Strona główna</a></li>-->
+<!--        <li><a href="#news">Wszystkie kluby</a></li>-->
+<!--        <li><a href="#contact">Kategorie</a></li>-->
+<!--    </ul>-->
+
+    <nav class="navbar navbar-expand-lg navbar-dark primary-color navbar-full bg-dark">
+        <div class="collapse navbar-collapse" id="basicExampleNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Strona główna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/clubs">Wszystkie kluby</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kategorie</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

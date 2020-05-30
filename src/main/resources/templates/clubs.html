@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">
+    <meta charset="UTF-8">
+    <title>Kluby piłkarskie</title>
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+<div class="content">
+    <h1 style="text-align: center" class="mt-4">WSZYSTKIE KLUBY</h1>
+
+<!--    <form action="/clubs" method="get" th:object="${filters}">-->
+<!--        <input type="text" placeholder="Nazwa klubu" th:field="*{name}">-->
+<!--        <input type="text" placeholder="Rok założenia" th:field="*{foundationYear}">-->
+
+<!--        <input type="submit" value="Filtruj" class="btn btn-primary"/>-->
+<!--    </form>-->
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <a href="/clubs?sort=name">
+                    Nazwa
+                </a>
+            </th>
+            <th>
+                <a href="/clubs?sort=sport">
+                    Dyscyplina
+                </a>
+            </th>
+            <th>
+                <a href="/clubs?sort=country">
+                    Kraj
+                </a>
+            </th>
+            <th>
+                <a href="/clubs?sort=foundationYear">
+                    Rok założenia
+                </a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="club: ${clubs}">
+            <td>
+                <a th:href="'/club/' + ${club.id}" th:text="${club.name}"></a>
+            </td>
+            <td th:text="${club.sport.getName()}"></td>
+            <td th:text="${club.country}"></td>
+            <td th:text="${club.foundationYear}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments :: head">
+    <meta charset="UTF-8">
+    <title>Świat futbolu</title>
+</head>
+<body>
+<div th:replace="fragments :: header"></div>
+
+<div class="content">
+    <h1 style="text-align: center" class="mt-4">NAJPOPULARNIEJSZE KLUBY</h1>
+
+    <ul>
+        <li th:each="club: ${clubs}">
+            <a th:href="'/club/' + ${club.name}" th:text="${club.name}"></a>
+        </li>
+    </ul>
+
+    <a href="/clubs">Zobacz wszystkie kluby</a>
+
+</div>
+</body>
+</html>

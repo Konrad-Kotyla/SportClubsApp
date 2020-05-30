@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${club.name}">Title</title>
+</head>
+<body>
+    <h1 th:text="${club.name}">Nazwa klubu</h1>
+    <h2 th:text="|Rok założenia: ${club.foundationYear}|">Rok założenia</h2>
+    <h2 th:text="|Kraj: ${club.country}|">Kraj</h2>
+    <h3 th:text="${club.description}">Opis</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+            <th>Kraj</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="footballer: ${footballers}">
+            <td th:text="${footballer.firstName}"></td>
+            <td th:text="${footballer.lastName}"></td>
+            <td th:text="${footballer.age}"></td>
+            <td th:text="${footballer.country}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+        <p><a href="/clubs">Powrót do listy klubów</a></p>
+
+</body>
+</html>
