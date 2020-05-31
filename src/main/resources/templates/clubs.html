@@ -36,6 +36,11 @@
                     Data założenia
                 </a>
             </th>
+            <th>
+                <a href="/clubs?sort=likes">
+                    Polubienia
+                </a>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -46,6 +51,7 @@
             <td th:text="${club.sport.getName()}"></td>
             <td th:text="${club.country.getName()}"></td>
             <td th:text="${club.foundationDate}"></td>
+            <td th:text="${club.likes}"></td>
         </tr>
         </tbody>
     </table>

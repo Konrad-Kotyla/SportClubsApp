@@ -101,4 +101,18 @@ public class ClubController {
             return "error";
         }
     }
+
+    @GetMapping("/like")
+    public String likeIt(Model model, @RequestParam Long id, Club club) {
+        Optional<Club> clubById = sportService.findClubById(id);
+        if (clubById.isEmpty()) {
+            return "error";
+        }
+        model.addAttribute("club", clubById);
+
+        int like = sportService.likeIt(club.getId(), club.getLikes());
+        club.setLikes(like);
+        model.addAttribute("like", sportService.likeIt(id, clubById.get().getLikes()));
+        return "redirect:/club/" + id;
+    }
 }

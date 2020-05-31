@@ -41,7 +41,7 @@ public class PlayerController {
     public String addPlayerHome(Model model) {
         List<Club> clubs = sportService.findAllClubs();
         model.addAttribute("player", new Player());
-        model.addAttribute("clubs", clubs );
+        model.addAttribute("clubs", clubs);
         return "playersAdd";
     }
 

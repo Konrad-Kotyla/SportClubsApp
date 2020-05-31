@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.javastart.clubs.model.Club;
-import pl.javastart.clubs.model.ClubFilters;
 import pl.javastart.clubs.model.Country;
 import pl.javastart.clubs.model.Player;
 import pl.javastart.clubs.repository.ClubRepository;
@@ -38,8 +37,8 @@ public class SportService {
         return Optional.ofNullable(clubRepository.findAllById(id));
     }
 
-    public List<Club> find3MostPopularClubs() {
-        return clubRepository.findTop3ByOrderByNameAsc();
+    public List<Club> find5MostPopularClubs() {
+        return clubRepository.findTop5ByOrderByLikesDescNameAsc();
     }
 
     public List<Club> findAllClubs() {
@@ -133,5 +132,9 @@ public class SportService {
 
     public List<Club> findClubsByCountry(Country country) {
         return clubRepository.findAllByCountryOrderBy(country);
+    }
+
+    public int likeIt(Long id, int likes) {
+        return clubRepository.like(id, likes);
     }
 }

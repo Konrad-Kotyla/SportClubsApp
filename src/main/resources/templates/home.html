@@ -7,9 +7,9 @@
 <body style="background-color: lightyellow">
 <div th:replace="navbars :: header"></div>
 <div class="content">
-    <h1 style="text-align: center" class="mt-4">NAJPOPULARNIEJSZE KLUBY</h1>
-    <div class="row">
-        <div class="col-lg-7">
+        <div class="row">
+        <div class="col-lg-4">
+            <h1 style="text-align: center" class="mt-4">NAJPOPULARNIEJSZE KLUBY</h1>
             <ul>
                 <li th:each="club: ${clubs}">
                     <h3><a th:href="'/club/' + ${club.id}" th:text="${club.name}"></a></h3>
@@ -17,9 +17,9 @@
             </ul>
         </div>
 
-        <div class="col-lg-5">
+        <div class="col-lg-8">
             <br/>
-            <img class="col-12" src="/sport.jpeg" width="700" height="600"/>
+            <img class="col-12" src="/sport.jpeg" width="700" height="750"/>
         </div>
     </div>
 </body>

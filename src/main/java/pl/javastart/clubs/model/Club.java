@@ -35,6 +35,7 @@ public class Club {
     private List<Player> players = new ArrayList<>();
 
     private String imageUrl;
+    private int likes;
 
     public Club() {
     }
@@ -101,5 +102,13 @@ public class Club {
 
     public void setImageUrl(String image) {
         this.imageUrl = image;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

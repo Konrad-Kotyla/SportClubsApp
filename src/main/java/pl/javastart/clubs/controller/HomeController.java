@@ -21,7 +21,7 @@ public class HomeController {
 
     @GetMapping("/")
     String home(Model model) {
-        List<Club> clubs = sportService.find3MostPopularClubs();
+        List<Club> clubs = sportService.find5MostPopularClubs();
         model.addAttribute("clubs", clubs);
         return "home";
     }

@@ -37,6 +37,14 @@
                 </a>
             </th>
             <th>
+                <a href="/players">
+                    Dyscyplina
+                </a>
+            </th>
+            <th>
+                <a></a>
+            </th>
+            <th>
                 <a></a>
             </th>
         </tr>
@@ -48,6 +56,7 @@
             <td th:text="${player.age}"></td>
             <td th:text="${player.country.getName()}"></td>
             <td th:text="${player.club.getName()}"></td>
+            <td th:text="${player.club.getSport().getName()}"></td>
             <td>
             <a th:href="@{|/player/edit?id=${player.id}|}">Edytuj</a>
             </td>
