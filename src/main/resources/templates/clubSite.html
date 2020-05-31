@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:include="navbars :: head">
     <meta charset="UTF-8">
     <title th:text="${club.name}">Title</title>
 </head>
-<body>
-    <h1 th:text="${club.name}">Nazwa klubu</h1>
-    <h2 th:text="|Rok założenia: ${club.foundationYear}|">Rok założenia</h2>
-    <h2 th:text="|Kraj: ${club.country}|">Kraj</h2>
-    <h3 th:text="${club.description}">Opis</h3>
+<body style="background-color: white">
+    <div th:replace="navbars :: header"></div>
+    <div class="col">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 th:text="${club.name}">Nazwa klubu</h1>
+                <h4 th:text="|Dyscyplina sportowa: ${club.sport.getName()}|">Dyscyplina sportowa</h4>
+                <h4 th:text="|Data założenia: ${club.foundationDate}|">Data założenia</h4>
+                <h4 th:text="|Kraj: ${club.country.getName()}|">Kraj</h4>
+                <p th:text="${club.description}">Opis</p>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Wiek</th>
-            <th>Kraj</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="footballer: ${footballers}">
-            <td th:text="${footballer.firstName}"></td>
-            <td th:text="${footballer.lastName}"></td>
-            <td th:text="${footballer.age}"></td>
-            <td th:text="${footballer.country}"></td>
-        </tr>
-        </tbody>
-    </table>
-
-        <p><a href="/clubs">Powrót do listy klubów</a></p>
-
+                <div class="float-right">
+                    <p><a th:href="@{|/club/edit?id=${club.id}|}">Edytuj dane klubu</a></p>
+                    <p><a th:href="|/club/${club.id}/delete|">Usuń klub</a></p>
+                </div>
+                <br/><br/><br/>
+                <div>
+                    <h4>Zawodnicy klubu:</h4><br/>
+                    <table class="table" th:marginwidth="50">
+                        <thead>
+                        <tr>
+                            <th>Imię</th>
+                            <th>Nazwisko</th>
+                            <th>Wiek</th>
+                            <th>Kraj</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="player: ${players}">
+                            <td th:text="${player.firstName}"></td>
+                            <td th:text="${player.lastName}"></td>
+                            <td th:text="${player.age}"></td>
+                            <td th:text="${player.country.getName()}"></td>
+                            <td>
+                                <a th:href="@{|/player/edit?id=${player.id}|}">Edytuj</a>
+                            </td>
+                            <td>
+                                <a th:href="@{|/player/${player.id}/delete|}">Usuń</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="float-right"><a th:href="@{/player/add}">Dodaj zawodnika</a></p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <br/>
+                <img class="col-12" th:src="${club.imageUrl}" width="700" height="600"/>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package pl.javastart.football.model;
+package pl.javastart.clubs.model;
 
 public class ClubFilters {
     private String name = "";

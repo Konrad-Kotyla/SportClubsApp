@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="navbars :: head">
+    <meta charset="UTF-8">
+    <title>Dodawanie klubu</title>
+</head>
+<body style="background-color: lightyellow">
+<div th:replace="navbars :: header"></div>
+<div class="content">
+    <br/>
+    <h3 class="col">Edytuj klub</h3>
+    <form method="post" th:action="@{/club/edit}" th:object="${club}">
+        <div class="form-group">
+            <div class="col-2" style="line-height:115%">
+                <input type="number" class="form-control" hidden th:field="*{id}"><br/>
+
+                <label>Nazwa klubu</label>
+                <input type="text" class="form-control" th:field="*{name}"><br/>
+
+                <label>Wybierz kraj</label>
+                <select class="form-control" th:field="*{country}" name="country">
+                    <option th:each="country : ${T(pl.javastart.clubs.model.Country).values()}"
+                            th:value="${country}"
+                            th:text="${country.name}"></option>
+                </select><br/>
+
+                <label>Wybierz dyscyplinę</label>
+                <select class="form-control" th:field="*{sport}" name="sport">
+                    <option th:each="sport : ${T(pl.javastart.clubs.model.Sport).values()}"
+                            th:value="${sport}"
+                            th:text="${sport.name}"></option>
+                </select><br/>
+
+                <label>Description</label>
+                <textarea rows="10" class="form-control" th:field="*{description}"></textarea><br/>
+                <label>Rok założenia</label>
+                <input class="form-control" type="date" th:field="*{foundationDate}"><br/>
+                <label>Link do logo klubu</label>
+                <input class="form-control" type="text" th:field="*{imageUrl}"><br/>
+                <button type="submit" class="btn btn-info">Zapisz</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

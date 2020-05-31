@@ -1,4 +1,4 @@
-package pl.javastart.football;
+package pl.javastart.clubs;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

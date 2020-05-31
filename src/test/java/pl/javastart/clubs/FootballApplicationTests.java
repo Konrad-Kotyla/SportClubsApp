@@ -1,4 +1,4 @@
-package pl.javastart.football;
+package pl.javastart.clubs;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

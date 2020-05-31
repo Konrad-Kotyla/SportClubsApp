@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="navbars :: head">
+    <meta charset="UTF-8">
+    <title>Kluby piłkarskie</title>
+</head>
+<body style="background-color: lightyellow">
+<div th:replace="navbars :: header"></div>
+<div class="content">
+    <h1 style="text-align: center" class="mt-4">WSZYSCY ZAWODNICY</h1>
+        <table class="table">
+        <thead>
+        <tr>
+            <th>
+                <a href="/players?sort=firstName">
+                    Imię
+                </a>
+            </th>
+            <th>
+                <a href="/players?sort=lastName">
+                    Nazwisko
+                </a>
+            </th>
+            <th>
+                <a href="/players?sort=age">
+                    Wiek
+                </a>
+            </th>
+            <th>
+                <a href="/players?sort=country">
+                    Kraj
+                </a>
+            </th>
+            <th>
+                <a href="/players?sort=club">
+                    Klub
+                </a>
+            </th>
+            <th>
+                <a></a>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="player: ${players}">
+            <td th:text="${player.firstName}"></td>
+            <td th:text="${player.lastName}"></td>
+            <td th:text="${player.age}"></td>
+            <td th:text="${player.country.getName()}"></td>
+            <td th:text="${player.club.getName()}"></td>
+            <td>
+            <a th:href="@{|/player/edit?id=${player.id}|}">Edytuj</a>
+            </td>
+            <td>
+                <a th:href="@{|/player/${player.id}/delete|}">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

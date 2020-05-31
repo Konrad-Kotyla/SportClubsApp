@@ -9,12 +9,6 @@
 </head>
 <body>
 <div th:fragment="header" class="topnav">
-<!--    <ul>-->
-<!--        <li><a href="#home">Strona główna</a></li>-->
-<!--        <li><a href="#news">Wszystkie kluby</a></li>-->
-<!--        <li><a href="#contact">Kategorie</a></li>-->
-<!--    </ul>-->
-
     <nav class="navbar navbar-expand-lg navbar-dark primary-color navbar-full bg-dark">
         <div class="collapse navbar-collapse" id="basicExampleNav">
             <ul class="navbar-nav mr-auto">
@@ -25,7 +19,13 @@
                     <a class="nav-link" href="/clubs">Wszystkie kluby</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Kategorie</a>
+                    <a class="nav-link" href="/club/add">Dodaj nowy klub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/players">Wszysycy zawodnicy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/player/add">Dodaj nowego zawodnika</a>
                 </li>
             </ul>
         </div>

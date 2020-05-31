@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="navbars :: head">
+    <meta charset="UTF-8">
+    <title>Dodawanie zawodnika</title>
+</head>
+<body style="background-color: lightyellow">
+<div th:replace="navbars :: header"></div>
+<div class="content">
+    <br/>
+    <h3 class="col">Dodaj zawodnika</h3>
+    <form method="post" th:action="@{/player/add}" th:object="${player}">
+        <div class="form-group">
+            <div class="col-2" style="line-height:115%">
+                <label>Imię zawodnika</label>
+                <input type="text" class="form-control" placeholder="Wpisz imię zawodnika" th:field="*{firstName}"><br/>
+                <label>Nazwisko zawodnika</label>
+                <input type="text" class="form-control" placeholder="Wpisz nazwisko zawodnika" th:field="*{lastName}"><br/>
+                <label>Wiek zawodnika</label>
+                <input type="number" class="form-control" placeholder="Wpisz wiek zawodnika" th:field="*{age}"><br/>
+                <label>Wybierz kraj</label>
+                <select class="form-control" name="country" th:field="*{country}">
+                    <option th:each="country : ${T(pl.javastart.clubs.model.Country).values()}"
+                            th:value="${country}"
+                            th:text="${country.name}"></option>
+                </select><br/>
+                <label>Wybierz klub</label>
+                <select class="form-control" name="club" th:field="*{club}">
+                    <option th:each="club : ${clubs}"
+                            th:value="${club.id}"
+                            th:text="${club.name}"></option>
+                </select><br/>
+
+                <button type="submit" class="btn btn-info">Dodaj</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

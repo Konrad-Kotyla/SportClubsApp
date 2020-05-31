@@ -1,11 +1,12 @@
-package pl.javastart.football.model;
+package pl.javastart.clubs.model;
 
 public enum Sport {
-    FOOTBALL("Piłka nożna"),
-    VOLLEYBALL("Siatkówka"),
-    BASKETBALL("Koszykówka"),
+    BASEBALL("Baseball"),
     HOKEY("Hokej"),
-    BASEBALL("Baseball");
+    BASKETBALL("Koszykówka"),
+    FOOTBALL("Piłka nożna"),
+    HANDBALL("Piłka ręczna"),
+    VOLLEYBALL("Siatkówka");
 
     private final String name;
 

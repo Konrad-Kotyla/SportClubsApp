@@ -1,9 +1,9 @@
-package pl.javastart.football.model;
+package pl.javastart.clubs.model;
 
 import javax.persistence.*;
 
 @Entity
-public class Footballer {
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +15,10 @@ public class Footballer {
     @Enumerated(value = EnumType.STRING)
     private Country country;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Club club;
 
-    public Footballer() {
+    public Player() {
     }
 
     public Long getId() {
