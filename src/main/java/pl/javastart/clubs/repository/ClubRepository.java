@@ -28,6 +28,6 @@ public interface ClubRepository extends JpaRepository<Club, Long>, JpaSpecificat
 
     List<Club> findTop3ByOrderByNameAsc();
 
-    List<Club> findByNameContainsIgnoreCaseAndFoundationDate(String name, int foundationDate);
-
+    @Query("SELECT c FROM Club c WHERE c.country = :country")
+    List<Club> findAllByCountryOrderBy(@Param("country") Country country);
 }

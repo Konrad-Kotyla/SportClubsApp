@@ -7,7 +7,12 @@
 <body style="background-color: lightyellow">
 <div th:replace="navbars :: header"></div>
 <div class="content">
-    <h1 style="text-align: center" class="mt-4">WSZYSTKIE KLUBY</h1>
+    <div class="col-12">
+        <h1>Wybierz kraj:</h1>
+        <a href="/clubs">Wszystkie / </a>
+        <a th:each="country : ${T(pl.javastart.clubs.model.Country).values()}" th:text="|${country.name} / |" th:href="@{|/clubs?country=${country}|}">dsad</a>
+    </div>
+
         <table class="table">
         <thead>
         <tr>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.javastart.clubs.model.Club;
 import pl.javastart.clubs.model.ClubFilters;
+import pl.javastart.clubs.model.Country;
 import pl.javastart.clubs.model.Player;
 import pl.javastart.clubs.repository.ClubRepository;
 import pl.javastart.clubs.repository.PlayerRepository;
@@ -67,7 +68,7 @@ public class SportService {
         clubToChange.setImageUrl(clubFromForm.getImageUrl());
 
         clubRepository.update(clubToChange.getName(), clubToChange.getCountry(), clubToChange.getSport(),
-                clubToChange.getDescription(), clubToChange.getFoundationDate(),clubToChange.getImageUrl() , clubToChange.getId());
+                clubToChange.getDescription(), clubToChange.getFoundationDate(), clubToChange.getImageUrl(), clubToChange.getId());
     }
 
     public void deleteClubById(Long id) {
@@ -128,5 +129,9 @@ public class SportService {
 
         playerRepository.update(playerToChange.getFirstName(), playerToChange.getLastName(), playerToChange.getAge(),
                 playerToChange.getCountry(), playerToChange.getClub(), playerToChange.getId());
+    }
+
+    public List<Club> findClubsByCountry(Country country) {
+        return clubRepository.findAllByCountryOrderBy(country);
     }
 }

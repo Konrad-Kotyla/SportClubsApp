@@ -28,16 +28,16 @@ public class ClubController {
 
     @GetMapping("/clubs")
     public String clubs(Model model,
-                        @RequestParam(required = false) String sort) {
+                        @RequestParam(required = false) String sort,
+                        @RequestParam(required = false) Country country) {
         List<Club> clubs;
-//        if (country != null){
-//            clubs = sportService.findClubsByCountry(country);
-//        }
-            if (sort != null) {
-                clubs = sportService.findAllSortedClubs(sort);
-            } else {
-                clubs = sportService.findAllClubs();
-            }
+        if (country != null) {
+            clubs = sportService.findClubsByCountry(country);
+        } else if (sort != null) {
+            clubs = sportService.findAllSortedClubs(sort);
+        } else {
+            clubs = sportService.findAllClubs();
+        }
         model.addAttribute("clubs", clubs);
         model.addAttribute("filters", new ClubFilters());
         return "clubs";
